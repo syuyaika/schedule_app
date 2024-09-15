@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+
+ .app-title {
+    text-align: center;      /* 中央揃え */
+    background-color: blue;  /* 背景色を青に設定 */
+    color: white;            /* 文字色を白に設定 */
+    padding: 10px;           /* 余白を追加して少し見た目を改善 */
+    margin: 0;               /* デフォルトの余白を無効化 */
+  }
+  
+  body, .app-title {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+ .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* 縦方向の位置を中央に揃える */
+  }
+  
+  .header p {
+    margin: 10px 20px;  /* 上下に10px、左右に20pxの余白を設定 */
+  }
+  
+  
+  /* テーブル全体のスタイル */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .form-table th {
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .form-table td {
+    padding: 10px;
+  }
+  
+  /* フォーム要素のスタイル */
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  
+  .form-textarea {
+    height: 100px; /* テキストエリアを少し大きくする */
+  }
+  
+  /* チェックボックスのスタイルをリセット */
+  .form-checkbox {
+    width: auto; /* チェックボックスの大きさをデフォルトに戻す */
+  }
+  
+  /* ボタンのスタイル */
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    background-color: #2ecc71;
+  }
+  
+  .cancel-button {
+    background-color: #e74c3c;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+  }
+  
+  /* フォームアクションのスタイル */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .form-actions ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+  }
+  
