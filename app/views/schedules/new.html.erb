@@ -3,38 +3,40 @@
 <%= render "shared/error", obj: @schedule %>
 
 <%= form_with model: @schedule do |f| %>
-  <table>
+  <table class="content">
     <tr>
-      <th><%= f.label :title ,"タイトル" %></th>
-      <td><%= f.text_field :title %></td>
+      <th><%= f.label :title, "タイトル" %></th>
+      <td><%= f.text_field :title, class: "text-field" %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :start_date ,"開始日" %></th>
-      <td><%= f.text_field :start_date, class: "datepicker" %></td>
+      <th><%= f.label :start_date, "開始日" %></th>
+      <td><%= f.text_field :start_date, class: "text-field datepicker" %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :age ,"終了日" %></th>
-      <td><%= f.text_field :end_date %></td>
+      <th><%= f.label :end_date, "終了日" %></th>
+      <td><%= f.text_field :end_date, class: "text-field datepicker" %></td>
     </tr>
     
     <tr>
-      <th><%= f.label :終日の場合はチェックを入れてください %></th>
-      <td><%= f.check_box :all_day, class: "reset-checkbox" %></td>
+      <th><%= f.label :all_day, "終日" %></th>
+      <td class="checkbox-container">
+        <%= f.check_box :all_day, class: "reset-checkbox" %><br>
+        <%= f.label :all_day, "終日の場合はチェックを入れてください", class: "checkbox-label" %>
+      </td>
     </tr>
 
-
     <tr>
-      <th><%= f.label :memo ,"メモ" %></th>
-      <td><%= f.text_area :memo %></td>
+      <th><%= f.label :memo, "メモ" %></th>
+      <td><%= f.text_area :memo, class: "text-area" %></td>
     </tr>
   </table>
 
   <div>
     <ul>
       <li><%= link_to "キャンセル", :schedules %></li>
-      <li><%= f.submit "保存"%></li>
+      <li><%= f.submit "保存", class: 'btn' %></li>
     </ul>
   </div>
 <% end %>

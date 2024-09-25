@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  protect_from_forgery
   def index
     @schedules = Schedule.all
   end
@@ -8,11 +9,12 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = Schedule.new(params.require(:schedule).permit(:id, :title, :start_date, :end_date, :memo))
+    @schedule = Schedule.new(params.require(:schedule).permit(:id, :title, :start_date, :end_date, :all_day, :memo))
     if @schedule.save
       flash[:notice] = "スケジュールを登録しました"
-      redirect_to :schedules
+      redirect_to schedules_path
     else
+      flash[:alert] = "スケジュールを登録できませんでした"
       render "new"
     end
   end
@@ -28,17 +30,22 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :start_date, :end_date, :all_day, :memo))
-    flash[:notice] = "スケジュールを更新しました"
-    redirect_to :schedules
+      flash[:notice] = "スケジュールを更新しました"
+      redirect_to schedules_path
     else
-    render "edit"
+      flash[:alert] = "スケジュールを更新できませんでした"
+      render "edit"
     end
   end
 
   def destroy
     @schedule = Schedule.find(params[:id])
-    @schedule.destroy
-    flash[:notice] = "スケジュールを削除しました"
-    redirect_to :schedules
+    if @schedule.destroy
+      flash[:notice] = "スケジュールを削除しました"
+      redirect_to schedules_path
+    else
+      flash[:alert] = "スケジュールを削除できませんでした"
+      redirect_to schedules_path
+    end
   end
 end

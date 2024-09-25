@@ -1,21 +1,28 @@
-<h3>スケジュール詳細</h3>
+<div class="header">
+  <p>スケジュール詳細</p>
+  <p><%= link_to "編集", edit_schedule_path(@schedule), class: 'btn' %></p>
+</div>
 
 <table class="content">
   <tr>
+    <th>タイトル</th>
+    <td class="center-align"><%= @schedule.title %></td>
+  </tr>
+  <tr>
     <th>開始日</th>
-    <td><%= @schedule.start_date %></td>
+    <td class="center-align"><%= @schedule.start_date %></td>
   </tr>
   <tr>
     <th>終了日</th>
-    <td><%= @schedule.end_date %></td>
+    <td class="center-align"><%= @schedule.end_date %></td>
   </tr>
   <tr>
     <th>終日</th>
-    <td><%= @schedule.all_day ? '⚪︎' : ''  %></td>
+    <td class="center-align"><%= @schedule.all_day ? '⚪︎' : '' %></td>
   </tr>
   <tr>
     <th>メモ</th>
-    <td><%= @schedule.memo %></td>
+    <td class="center-align"><%= @schedule.memo %></td>
   </tr>
 </table>
 

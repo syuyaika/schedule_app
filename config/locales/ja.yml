@@ -1,16 +1,8 @@
 ja:
-  time:
-    formats:
-      default: "%Y/%m/%d %H:%M:%S"
-
   activerecord:
-    errors:
-      models:
-        schedule:
-          attributes:
-            title:
-              blank: "タイトルを入力してください"
-            start_date:
-              blank: "開始日を入力してください"
-            end_date:
-              blank: "終了日を入力してください"
+    attributes:
+      schedule:
+        title: "タイトル"
+        start_date: "開始日"
+        end_date: "終了日"
+
